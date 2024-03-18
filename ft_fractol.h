@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:51:58 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 11:08:25 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 11:27:49 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,8 @@
 #define WHITE       0xFFFFFF
 
 // Psychedelic Colors
-#define PSYCHEDELIC_PINK    0xFF00FF
-#define PSYCHEDELIC_PURPLE  0x092E56
-#define PSYCHEDELIC_GREEN   0x00FF00
-#define PSYCHEDELIC_YELLOW  0xFFFF00
-#define PSYCHEDELIC_ORANGE  0xFFA500
+#define PSYCHEDELIC_WARM    0x470712
+
 
 
 typedef struct s_complex

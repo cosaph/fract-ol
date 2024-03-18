@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:30:04 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 11:08:28 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 11:28:58 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	main(int argc, char **argv)
 				fractal.height, fractal.name);
 		fractal.img = mlx_new_image(fractal.mlx, fractal.width, fractal.height);
 		fractalsetup(&fractal);
-		//mlx_key_hook(fractal.win, key_hook, &fractal);
-		//mlx_mouse_hook(fractal.win, mouse_hook, &fractal);
-		//mlx_hook(fractal.win, 17, 1L << 17, close_game, &fractal);
+		//mlx_key_hook(fractal.win, key_hook, &fractal); //TODO
+		//mlx_mouse_hook(fractal.win, mouse_hook, &fractal); //TODO
+		//mlx_hook(fractal.win, 17, 1L << 17, close_game, &fractal); //TODO
 		mlx_loop(fractal.mlx);
 	}
 	else
