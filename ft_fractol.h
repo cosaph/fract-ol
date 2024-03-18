@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:51:58 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 11:27:49 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 15:43:03 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_fractal {
 	double		radius;
 	int			iterations;
 	int			color;
+	double		u;
 }				t_fractal;		
 
 //** utils
@@ -101,5 +102,12 @@ void	julia_param(t_fractal *fractal, char *name, double cx, double cy);
 //** Julia 
 
 void	juliaset(t_fractal *julia);
+
+//** Ideka 
+
+
+t_complex	mappoint_ideka(t_fractal *ikeda, int x, int y);
+void ikedaAttractor(t_fractal *ikeda);
+void ikeda_param(t_fractal *fractal, char *name);
 
 #endif

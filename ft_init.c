@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:30:04 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 11:28:58 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 14:01:49 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ int	main(int argc, char **argv)
 {
 	t_fractal		fractal;
 
-	if (argc == 4)
+	if (argc != 1)
 	{
 		if (!ft_strncmp(argv[1], "mandelbrot", 10))
 			mandelbrot_param(&fractal, argv[1]);
 		else if (!ft_strncmp(argv[1], "julia", 5)) // ft_strlen ????
 			julia_param(&fractal, argv[1], atodbl(argv[2]), atodbl(argv[3]));
+		else if (!ft_strncmp(argv[1], "ideka", 5))
+			ikeda_param(&fractal, "ideka");
 		else
 		{
 			ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);

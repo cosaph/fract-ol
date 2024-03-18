@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:19:51 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 10:46:20 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 11:58:51 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_complex	mappoint(t_fractal *fractal, double x, double y)
 	c.y = 2 * fractal->radius * (y - fractal->height / 2) / l;
 	return (c);
 }
+
 
 t_complex   sum_complex(t_complex z1, t_complex z2)
 {

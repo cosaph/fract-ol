@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:12:00 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 09:08:44 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 14:35:10 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	my_mlx_pixel_put(t_fractal *fractal, int x, int y, int color)
 	*(unsigned int *)dst = color;
 	return (0);
 }
+
 
 void	minimandel(int x, int y, t_fractal *mandel)
 {

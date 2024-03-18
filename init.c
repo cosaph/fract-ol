@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 16:21:19 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 10:54:02 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 15:44:09 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	fractalsetup(t_fractal *fractal)
 		juliaset(fractal);
 	if (!ft_strncmp(fractal->name, "mandelbrot", 10))
 		mandelbrotset(fractal);
-	/* else if (!ft_strncmp(fractal->name, "burning", 7))
-		burningset(fractal); */
+	else if (!ft_strncmp(fractal->name, "ideka", 5))
+		ikedaAttractor(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
 }
 
@@ -52,5 +52,7 @@ void	fractal_init(t_fractal *fractal)
 		juliaset(fractal);
 	else if (!ft_strncmp(fractal->name, "mandelbrot", 10))
 		mandelbrotset(fractal);
+	else if (!ft_strncmp(fractal->name, "ideka", 5))
+		ikedaAttractor(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
 }
