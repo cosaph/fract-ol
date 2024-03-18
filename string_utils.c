@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 15:46:59 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 11:05:56 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 16:27:40 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,30 +48,9 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-double	atodbl(char *s)
+int	ft_isspace(char c)
 {
-	long	integer_part;
-	double	fractional_part;
-	double	pow;
-	int		sign;
-
-	integer_part = 0;
-	fractional_part = 0;
-	sign = +1;
-	pow = 1;
-	while ((*s >= 9 && *s <= 13) || 32 == *s)
-		++s;
-	while ('+' == *s || '-' == *s)
-		if ('-' == *s++)
-			sign = -sign;
-	while (*s != '.' && *s)
-		integer_part = (integer_part * 10) + (*s++ - 48);
-	if ('.' == *s)
-		++s;
-	while (*s)
-	{
-		pow /= 10;
-		fractional_part = fractional_part + (*s++ - 48) * pow;
-	}
-	return ((integer_part + fractional_part) * sign);
+	if (c >= '\t' && c <= '\r')
+		return (1);
+	return (0);
 }

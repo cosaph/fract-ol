@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:51:58 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 15:43:03 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 16:26:57 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ typedef struct s_fractal {
 int		ft_strncmp( const char *s1, const char *s2, size_t n );
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
-double	atodbl(char *s);
+double	ft_atof(char *str);
+static int	skip_space_sign(char *str, int *is_neg);
+int	ft_isdigit(int c);
+int	ft_isspace(char c);
 
 //** init 
 

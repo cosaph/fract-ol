@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:18:20 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 11:26:11 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/18 16:14:24 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,17 @@ void	juliaset(t_fractal *julia)
 
 void	julia_param(t_fractal *fractal, char *name, double cx, double cy)
 {
-	fractal->width = 800;
-	fractal->height = 800;
-	fractal->c.x = cx ;
-	fractal->c.y = cy ;
+	fractal->width = 1280;
+	fractal->height = 720;
+	fractal->c.x = cx;
+	fractal->c.y = cy;
 	fractal->radius = 3;
 	fractal->iterations = 150;
-	fractal->zoom = 2;
+	fractal->zoom = 1;
 	fractal->x = 0;
 	fractal->y = 0;
 	fractal->xarrow = 0;
 	fractal->yarrow = 0;
-	fractal->color = 0x470712;
+	fractal->color = 0xccf1ff;
 	fractal->name = name;
 }
