@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:51:58 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 16:26:57 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/22 13:48:45 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@
 // Psychedelic Colors
 #define PSYCHEDELIC_WARM    0x470712
 
+#define ESC 53
+
+#define LEFT 123
+#define UP 126
+#define RIGHT 124
+#define DOWN 125
+#define R 15
+#define Z 6
+#define PLUS 69
+#define MINUS 78
 
 
 typedef struct s_complex
@@ -68,16 +78,17 @@ typedef struct s_fractal {
 	int			iterations;
 	int			color;
 	double		u;
+	double	min_r; //pour le zoom 
+	double	max_r;
+	double	min_i;
+	double	max_i;
 }				t_fractal;		
 
 //** utils
 int		ft_strncmp( const char *s1, const char *s2, size_t n );
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
-double	ft_atof(char *str);
-static int	skip_space_sign(char *str, int *is_neg);
-int	ft_isdigit(int c);
-int	ft_isspace(char c);
+double	atodbl(char *s);
 
 //** init 
 
@@ -112,5 +123,15 @@ void	juliaset(t_fractal *julia);
 t_complex	mappoint_ideka(t_fractal *ikeda, int x, int y);
 void ikedaAttractor(t_fractal *ikeda);
 void ikeda_param(t_fractal *fractal, char *name);
+
+
+// ZOOM 
+
+void	ft_zoom(double x, double y, t_fractal *fractal);
+void	ft_dezoom(double x, double y, t_fractal *fractal);
+int		mouse_hook(int key_code, int x, int y, t_fractal *fractal);
+int	key_hook(int keycode, t_fractal *fractal, double cx, double cy);
+int		close_fractal(t_fractal	*fractal);
+
 
 #endif

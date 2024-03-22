@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 09:18:20 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 16:14:24 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/21 16:59:23 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void	julia_param(t_fractal *fractal, char *name, double cx, double cy)
 	fractal->y = 0;
 	fractal->xarrow = 0;
 	fractal->yarrow = 0;
-	fractal->color = 0xccf1ff;
+	fractal->color = PSYCHEDELIC_WARM;
 	fractal->name = name;
 }
