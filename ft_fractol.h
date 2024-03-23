@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:51:58 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/23 17:33:10 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/23 18:43:27 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define Z 6
 # define PLUS 69
 # define MINUS 78
+# define COLOR 36
 
 //** struc
 typedef struct s_complex
@@ -124,5 +125,6 @@ void		ft_dezoom(double x, double y, t_fractal *fractal);
 int			mouse_hook(int key_code, int x, int y, t_fractal *fractal);
 int			key_hook(int keycode, t_fractal *fractal, double cx, double cy);
 int			close_fractal(t_fractal	*fractal);
+int			generate_psychedelic_color();
 
 #endif

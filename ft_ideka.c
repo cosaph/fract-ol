@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 11:32:06 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/23 18:36:14 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/23 18:42:18 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	ikedaattractor(t_fractal *ikeda)
 	y = 0.0;
 	while (i < ikeda->iterations)
 	{
-		calculateCoordinates(ikeda, &x, &y);
+		calculatecoordinates(ikeda, &x, &y);
 		pixel_x = ikeda->width / 2 + x * ikeda->width / 5;
 		pixel_y = ikeda->height / 2 + y * ikeda->height / 5;
-		drawPixel(ikeda, pixel_x, pixel_y, ikeda->color * i);
+		drawpixel(ikeda, pixel_x, pixel_y, ikeda->color * i);
 		i++;
 	}
 }

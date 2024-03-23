@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 11:29:43 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/23 16:35:49 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/23 18:49:12 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ int	key_hook(int keycode, t_fractal *fractal, double cx, double cy)
 	}
 	else if (keycode == Z)
 		fractal->zoom = 1;
+	else if (keycode == COLOR) {
+        fractal->color = generate_psychedelic_color(); 
+        fractalsetup(fractal);
+    }
 	if (keycode != ESC)
 		fractalsetup(fractal);
 	return (0);
@@ -91,4 +95,19 @@ int	mouse_hook(int key_code, int x, int y, t_fractal *fractal)
 		ft_dezoom(x, y, fractal);
 	fractalsetup(fractal);
 	return (0);
+}
+
+int generate_psychedelic_color() 
+{
+    int red;
+    int green;
+    int blue;
+	int color;
+
+	red = rand() % 256;
+	green = rand() % 256;
+	blue = rand() % 256;
+    color = (red << 16) | (green << 8) | blue;
+
+    return color;
 }
