@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 16:21:19 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 15:44:09 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/23 17:33:50 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	fractalsetup(t_fractal *fractal)
 	if (!ft_strncmp(fractal->name, "mandelbrot", 10))
 		mandelbrotset(fractal);
 	else if (!ft_strncmp(fractal->name, "ideka", 5))
-		ikedaAttractor(fractal);
+		ikedaattractor(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
 }
 
@@ -39,7 +39,7 @@ int	freeall(t_fractal *fractal)
 	mlx_destroy_image(fractal->mlx, fractal->img);
 	mlx_destroy_window(fractal->mlx, fractal->win);
 	free(fractal->mlx);
-	exit(0);
+	exit (0);
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -53,6 +53,6 @@ void	fractal_init(t_fractal *fractal)
 	else if (!ft_strncmp(fractal->name, "mandelbrot", 10))
 		mandelbrotset(fractal);
 	else if (!ft_strncmp(fractal->name, "ideka", 5))
-		ikedaAttractor(fractal);
+		ikedaattractor(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
 }

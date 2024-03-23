@@ -6,7 +6,7 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:19:51 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/18 11:58:51 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/23 17:10:11 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,20 @@ t_complex	mappoint(t_fractal *fractal, double x, double y)
 	return (c);
 }
 
-
-t_complex   sum_complex(t_complex z1, t_complex z2)
+t_complex	sum_complex(t_complex z1, t_complex z2)
 {
-    t_complex   result;
+	t_complex	result;
 
-    result.x = z1.x + z2.x;
-    result.y = z1.y + z2.y;
-    return result;
+	result.x = z1.x + z2.x;
+	result.y = z1.y + z2.y;
+	return (result);
 }
 
-t_complex   square_complex(t_complex z)
+t_complex	square_complex(t_complex z)
 {
-    t_complex   result;
-    
-    result.x = (z.x * z.x) - (z.y * z.y);
-    result.y = 2 * z.x * z.y;
-    return result;
+	t_complex	result;
+
+	result.x = (z.x * z.x) - (z.y * z.y);
+	result.y = 2 * z.x * z.y;
+	return (result);
 }

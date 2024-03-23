@@ -6,45 +6,40 @@
 /*   By: ccottet <ccottet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:51:58 by ccottet           #+#    #+#             */
-/*   Updated: 2024/03/22 13:48:45 by ccottet          ###   ########.fr       */
+/*   Updated: 2024/03/23 17:33:10 by ccottet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FRACTOL_H
-#  define FT_FRACTOL_H
+# define FT_FRACTOL_H
 
-# include <stdio.h> //TODO debugging
-# include <stdlib.h> //malloc free
-# include <unistd.h> // write
+# include <stdio.h> 
+# include <stdlib.h>
+# include <unistd.h>
 # include <math.h>
 
-#include "mlx/mlx.h"
+# include "mlx/mlx.h"
+# include "ft_printf/includes/ft_printf.h"
 
-#define ERROR_MESSAGE "Please enter \n\t\" ./fractol mandelbrot\" or \n\t\" ./fractol julia <value_1> <value_2>\n \""
+# define ERROR_MESSAGE "Please enter mandelbrot or julia <value_1> <value_2>"
 
-// Basic Colors
-#define BLACK       0x000000
-#define WHITE       0xFFFFFF
+# define PSYCHEDELIC_WARM    0x470712
 
-// Psychedelic Colors
-#define PSYCHEDELIC_WARM    0x470712
+# define ESC 53
+# define LEFT 123
+# define UP 126
+# define RIGHT 124
+# define DOWN 125
+# define R 15
+# define Z 6
+# define PLUS 69
+# define MINUS 78
 
-#define ESC 53
-
-#define LEFT 123
-#define UP 126
-#define RIGHT 124
-#define DOWN 125
-#define R 15
-#define Z 6
-#define PLUS 69
-#define MINUS 78
-
-
+//** struc
 typedef struct s_complex
 {
-	double x;
-	double y;
+	double	x;
+	double	y;
 }			t_complex;
 
 typedef struct s_image
@@ -77,25 +72,28 @@ typedef struct s_fractal {
 	double		radius;
 	int			iterations;
 	int			color;
+	double		mouse_x;
+	double		mouse_y;
 	double		u;
-	double	min_r; //pour le zoom 
-	double	max_r;
-	double	min_i;
-	double	max_i;
-}				t_fractal;		
+	double		t;
+	double		x_new;
+	double		y_new;
+	int			pixel_x;
+	int			pixel_y;
+}	t_fractal;
 
-//** utils
-int		ft_strncmp( const char *s1, const char *s2, size_t n );
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-double	atodbl(char *s);
+//** strings_utils
+
+int			ft_strncmp( const char *s1, const char *s2, size_t n );
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putchar_fd(char c, int fd);
+double		atodbl(char *s);
 
 //** init 
-
-void	fractal_init(t_fractal *fractal);
-int	freeall(t_fractal *fractal);
-void	fractalsetup(t_fractal *fractal);
-void	malloc_error(void);
+void		fractal_init(t_fractal *fractal);
+int			freeall(t_fractal *fractal);
+void		fractalsetup(t_fractal *fractal);
+void		malloc_error(void);
 
 //** linear interpolation (ft_math_utils)
 t_complex	mappoint(t_fractal *julia, double x, double y);
@@ -103,35 +101,28 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 
 //** render
-void fractal_render(t_fractal *fractal);
-void	mandelbrotset(t_fractal *mandel);
-void	minimandel(int x, int y, t_fractal *mandel);
-int	my_mlx_pixel_put(t_fractal *fractal, int x, int y, int color);
+void		fractal_render(t_fractal *fractal);
+void		mandelbrotset(t_fractal *mandel);
+void		minimandel(int x, int y, t_fractal *mandel);
+int			my_mlx_pixel_put(t_fractal *fractal, int x, int y, int color);
 
 //** params
-
-void	mandelbrot_param(t_fractal *fractal, char *name);
-void	julia_param(t_fractal *fractal, char *name, double cx, double cy);
+void		mandelbrot_param(t_fractal *fractal, char *name);
+void		julia_param(t_fractal *fractal, char *name, double cx, double cy);
 
 //** Julia 
-
-void	juliaset(t_fractal *julia);
+void		juliaset(t_fractal *julia);
 
 //** Ideka 
-
-
 t_complex	mappoint_ideka(t_fractal *ikeda, int x, int y);
-void ikedaAttractor(t_fractal *ikeda);
-void ikeda_param(t_fractal *fractal, char *name);
+void		ikedaattractor(t_fractal *ikeda);
+void		ikeda_param(t_fractal *fractal, char *name);
 
-
-// ZOOM 
-
-void	ft_zoom(double x, double y, t_fractal *fractal);
-void	ft_dezoom(double x, double y, t_fractal *fractal);
-int		mouse_hook(int key_code, int x, int y, t_fractal *fractal);
-int	key_hook(int keycode, t_fractal *fractal, double cx, double cy);
-int		close_fractal(t_fractal	*fractal);
-
+//** Zoom 
+void		ft_zoom(double x, double y, t_fractal *fractal);
+void		ft_dezoom(double x, double y, t_fractal *fractal);
+int			mouse_hook(int key_code, int x, int y, t_fractal *fractal);
+int			key_hook(int keycode, t_fractal *fractal, double cx, double cy);
+int			close_fractal(t_fractal	*fractal);
 
 #endif
